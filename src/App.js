@@ -1,25 +1,19 @@
-import logo from './logo.svg';
+import React, {useState} from 'react'
 import './App.css';
+import MainField from './components/MainContent/MainContent.js';
+import Sidebar from './components/Sidebar/Sidebar.js'
 
-function App() {
+
+export function App() {
+  const [theme, setTheme] = useState('light');
+  const [points, setPoints] = useState([]);
+  const themeInfo = {theme: theme, setTheme: setTheme};
+  const pointsInfo = {points: points, setPoints: setPoints};
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <MainField theme={theme} pointsInfo={pointsInfo}/>
+      <Sidebar themeInfo={themeInfo} pointsInfo={pointsInfo}/>
     </div>
   );
 }
-
-export default App;

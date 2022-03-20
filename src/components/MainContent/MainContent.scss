@@ -1,0 +1,34 @@
+@mixin flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .MainContent{
+    padding-top: 14.5px;
+    padding-bottom: 14.5px;
+    width: 93%;
+    display: inline-grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    justify-items: center;
+    gap: 20px;
+    position: absolute;
+  }
+
+  .MainContent_light{
+    background: linear-gradient(45deg, #3fe7af, 60%, white)
+  }
+
+  .MainContent_dark{
+    background: linear-gradient(45deg, #09033a, rgb(14, 63, 100));
+  }
+
+  .MainContent::-webkit-scrollbar{
+    background-color: rgb(53, 53, 138);
+    width: 5px;
+    border-radius: 15%;
+  }
+  .MainContent::-webkit-scrollbar-thumb{
+      background-color: rgb(0, 190, 190);
+      border-radius: 15%;
+  }

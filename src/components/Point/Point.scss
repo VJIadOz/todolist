@@ -1,0 +1,330 @@
+@mixin flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.point{
+    height: 130px;
+    width: 220px;
+    border-radius: 10%;
+
+    .pointMainVersion{
+        height: 100%;
+        width: 100%;
+        display: grid;
+        
+        grid-template-areas: "fieldForEditButton fieldForTextTask fieldForDeleteButton"
+                            "fieldForEditButton fieldForFinishedButton fieldForDeleteButton";
+        grid-template-columns: 7.5% 85% 7.5%;
+        grid-template-rows: 85% 15%;
+
+        .fieldForEditButton{
+            grid-area: fieldForEditButton;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            z-index: 1;
+            position: relative;
+
+            .editButton{
+                position: absolute;
+                height: 60%;
+                width: 60%;
+                border-top-right-radius: 15px;
+                border-bottom-right-radius: 15px;
+                transition: width 0.4s;
+                @include flex;
+
+                p{
+                    transition: font-size 0.4s;
+                    font-size: 0px;
+                }
+            }
+
+            .editButton_notFinished{
+                background: rgb(103, 29, 29);
+                cursor: pointer;
+            }
+
+            .editButton_notFinished:hover{
+                width: 40px;
+                z-index: 2;
+
+                p{
+                    font-size: 30px;  
+                }
+            }
+
+            .editButton_finished{
+                background: rgb(75, 75, 75);
+                cursor: default;
+            }
+
+            
+        }
+
+        .fieldForTextTask{
+            grid-area: fieldForTextTask;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+
+            .textTask{
+                text-align: center;
+                height: 90%;
+                width: 90%;
+                border: 0;
+                padding: 0;
+                background: transparent;
+                resize: none;
+                overflow-x: hidden;
+                font-size: 120%;
+                color: white;
+                text-shadow: 0px 0px 2px black;
+                letter-spacing: 1.5px;
+            }
+
+            .textTask_finishedStyle{
+                text-decoration: line-through;
+                text-decoration-color: black;
+            }
+
+            .textTask::-webkit-scrollbar{
+                background-color: rgb(53, 53, 138);
+                width: 5px;
+                border-radius: 15%;
+            }
+            .textTask::-webkit-scrollbar-thumb{
+                background-color: rgb(0, 190, 190);
+                border-radius: 15%;
+            }
+        }
+    
+        .fieldFor_DeleteCancelfinished_Buttons{
+            grid-area: fieldForDeleteButton;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            z-index: 1;
+            position: relative;
+
+            .deleteCancelButtons{
+                position: absolute;
+                height: 60%;
+                width: 60%;
+                border-top-left-radius: 15px;
+                border-bottom-left-radius: 15px;
+                background-color: rgb(199, 0, 0);
+                transition: width 0.4s;
+                display: flex;
+                flex-direction: row;
+
+                .deleteFinishedButton{
+                    width: 40px;
+                    height: 100%;
+                    @include flex;
+                    border-top-left-radius: 15px;
+                    border-bottom-left-radius: 15px;
+
+                    p{
+                        transition: font-size 0.4s;
+                        font-size: 0px;
+                    }
+                }
+                .cancelFinishedButton{
+                    width: 40px;
+                    height: 100%;
+                    @include flex;
+
+                    p{
+                        transition: font-size 0.4s;
+                        font-size: 0px;
+                    }
+                }
+            }
+            .deleteCancelButtons:hover{
+                width: 80px;
+                z-index: 2;
+
+                .deleteFinishedButton{
+                    width: 40px;
+                    height: 100%;
+                    cursor: pointer;
+                    border-right: 1px solid rgb(175, 0, 0);
+                    p{
+                        font-size: 30px;
+                    }
+                }
+                .deleteFinishedButton:hover{
+                    background-color: red;
+                }
+                .cancelFinishedButton{
+                    width: 40px;
+                    height: 100%;
+                    cursor: pointer;
+                    border-left: 1px solid rgb(175, 0, 0);
+
+                    p{
+                        font-size: 30px;
+                    }
+                }
+                .cancelFinishedButton:hover{
+                    background-color: red;
+                }
+            }
+
+            
+
+            .deleteButton{
+                position: absolute;
+                height: 60%;
+                width: 60%;
+                border-top-left-radius: 15px;
+                border-bottom-left-radius: 15px;
+                background-color: rgb(199, 0, 0);
+                transition: width 0.4s;
+                @include flex;
+
+                p{
+                    transition: font-size 0.4s;
+                    font-size: 0px;
+                }
+            }
+            .deleteButton:hover{
+                width: 40px;
+                z-index: 2;
+                cursor: pointer;
+                
+                p{
+                    font-size: 30px;
+                }
+            }
+        }
+     
+        .fieldForFinishedButton{
+            grid-area: fieldForFinishedButton;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            z-index: 1;
+            position: relative;
+
+            .finishedButton{
+                position: absolute;
+                height: 50%;
+                width: 60%;
+                border-top-right-radius: 15px;
+                border-top-left-radius: 15px;
+                transition: height 0.4s;
+                
+                @include flex;
+
+                p{
+                    transition: font-size 0.4s;
+                    font-size: 0px;
+                }
+            }
+
+            .finishedButton_finished{
+                background: rgb(75, 75, 75);
+                cursor: default;
+            }
+
+            .finishedButton_notFinished{
+                background: green;
+                cursor: pointer;
+            }
+
+            .finishedButton_notFinished:hover{
+                height: 40px;
+                z-index: 2;
+                
+                p{
+                    font-size: 30px;
+                }
+            }
+        }
+    }
+
+    .pointEditVersion{
+        height: 100%;
+        width: 100%;
+        
+        .fieldForInput{
+            height: 55%;
+            @include flex;
+
+            .input{
+                width:90%;
+                background: transparent;
+                border: 0;
+                border-bottom: 2px solid grey;
+                color: white
+            }
+        }
+
+        .fieldForButtons{
+            height: 45%;
+            @include flex;
+
+            .buttonsPoint{
+                width: 90%;
+                height: 60%;
+                display: flex;
+                flex-direction: row;
+
+                .apply{
+                    @include flex;
+                    width: 50%;
+        
+                    .applyText{
+                        cursor: pointer;
+                        font-size: 7vh;
+                        font-weight: bold;
+                        color: green;
+                    }
+        
+                    .applyText:hover{
+                        text-shadow: 0px 0px 10px rgb(0, 255, 55)
+                    }
+                }
+        
+                .cancel{
+                    @include flex;
+                    width: 50%;
+        
+                    .cancelText{
+                        cursor: pointer;
+                        font-size: 6vh;
+                        font-weight: bold;
+                        color: rgb(177, 0, 0);
+                        font-weight: bold;
+                    }
+        
+                    .cancelText:hover{
+                        text-shadow: 0px 0px 10px red;
+                    }
+                }
+            }
+        }
+        
+    }
+    
+}
+
+.point_light{
+    background: linear-gradient(-45deg, rgb(30, 116, 131) 10%, rgb(73, 168, 89));
+    box-shadow: 0px 0px 10px 5px grey;
+}
+
+.point_dark{
+    background: linear-gradient(-45deg, rgb(0, 14, 75) 10%, rgb(34, 0, 34));
+    box-shadow: 0px 0px 10px 5px rgb(0, 102, 150);
+}
+
+.finishedPoint{
+    background-color: rgb(54, 50, 50);
+}
+    
+    

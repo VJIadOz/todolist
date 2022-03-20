@@ -1,0 +1,80 @@
+.Sidebar{
+    width: 7%;
+    position: fixed;
+    right: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    .newTaskButton{
+        cursor: pointer;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
+        width: 10vh;
+        height: 10vh;
+        
+        .newTaskButtonPlus{
+            height: 6vh;
+            width: 6vh;
+            clip-path: polygon(0% 45%, 45% 45%, 45% 0%, 55% 0%, 55% 45%, 100% 45%, 100% 55%, 55% 55%, 55% 100%, 45% 100%, 45% 55%, 0% 55%);
+        }
+    }
+
+    .newTaskButton_light{
+        box-shadow: 0px 0px 10px #0f9b6c;
+
+        .newTaskButtonPlus_light{
+            background-color: rgb(0, 199, 199);
+        }
+    }
+
+    .newTaskButton_dark{
+        box-shadow: 0px 0px 10px white;
+
+        .newTaskButtonPlus_dark{
+            background-color: white;
+        }
+    }
+
+
+    .newTaskButton:active{
+        box-shadow: 0px 0px 5px 5px grey inset;
+
+        .newTaskButtonPlus{
+            height: 5vh;
+            width: 5vh;
+        }
+    }
+
+    .ThemeButton{
+        box-shadow: 0px 0px 10px white;
+        height: 10vh;
+        width: 10vh;
+        min-width: 50px;
+        min-height: 50px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+
+        .ThemeSign{
+            color: white;
+            font-size: 6vh;
+        }
+    }
+}
+
+.Sidebar_light{
+    background: linear-gradient(45deg, #45e6b0, white);
+    box-shadow: 0px 0px 5px grey;
+}
+.Sidebar_dark{
+    background: linear-gradient(0deg, #09033a, rgb(14, 63, 100));
+    box-shadow: 0px 0px 5px aqua;
+}
