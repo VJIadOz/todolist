@@ -1,0 +1,33 @@
+
+.App{
+    height: 100vh;
+    display: flex;
+    &-dark .list{
+        background: linear-gradient(45deg, #09033a, rgb(14, 63, 100));
+    }
+}
+
+.list{
+    overflow-y: auto;
+    width: 93%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-auto-rows: 200px;
+    align-items: center;
+    justify-items: center;
+    background: linear-gradient(35deg, rgb(179, 242, 242) 20%, white 80%);
+    &::-webkit-scrollbar{
+        width: 5px;
+        background-color: #f9f9fd;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: #96acbd;
+    }
+    @media screen and (max-width: 786px) {
+        &{
+            width: 100%;
+            height: calc(100% - 60px);
+        }
+    }
+}

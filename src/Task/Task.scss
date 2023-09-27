@@ -1,0 +1,153 @@
+.Task{
+    width: 300px;
+    aspect-ratio: 3/1.5;
+    background-color: rgb(72, 123, 123);
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 15% 70% 15%;
+    grid-template-areas: "editText text twoBtn";
+    &-dark{
+        background: linear-gradient(-45deg, rgb(0, 22, 122) 1%, rgb(72, 0, 72) 100%);
+    }   
+    &-complete{
+        background-color: rgb(34, 36, 43);
+    } 
+}
+
+
+@mixin button{
+    border: 0;
+    cursor: pointer;
+    font-size: 1.5rem;
+    width: 100%;
+    transition: background-position 0.3s, font-size 0.3s, color 0.3s;
+    &:hover{
+        background-position: 0px;
+        font-size: 2.2rem;
+        color: white;
+    }
+}
+
+
+.main_wrapper{
+    grid-area: text;
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+    .text_wrapper{
+        height: 80%;
+        font-size: 1.5rem;
+        display: flex;
+        justify-content: center;
+        border-bottom: 1px solid white;
+        textarea{
+            background-color: transparent;
+            color:white;
+            overflow-y: auto;
+            resize: none;
+            width: 100%;
+            height: 80%;
+            border: 0;
+            padding: 10px;
+            text-align: center;
+            &:focus{
+                outline:none;
+            }
+            &::-webkit-scrollbar{
+                width: 0px;
+            }
+        }
+    }
+    .time_wrapper{
+        color: white;
+        height: 20%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+}
+
+
+
+
+
+
+
+
+.editBtn_wrapper, .applyEditBtn_wrapper{
+    grid-area: editText;
+    position: relative;
+
+    button{
+        @include button;
+        height: 100%;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        background: url(./images/brown_background.jpg) -100px 0%/ 100% 100% no-repeat;
+        
+    }
+
+}
+.applyEditBtn_wrapper button{
+    background: url(./images/green_background.jpg) -100px 0%/ 100% 100% no-repeat;
+}
+
+
+
+.twoBtn_wrapper{
+    grid-area: twoBtn;
+    height: 100%;
+    button{
+        height: 50%;
+        transition: background-position 0.3s, font-size 0.3s, color 0.3s;
+        &:first-child{
+            @include button;
+            border-top-right-radius: 10px;
+            background: url(./images/red_background.png) 100px 0%/ 100% 100% no-repeat;
+        }
+        &:last-child{
+            @include button;
+            border-bottom-right-radius: 10px;
+            background: url(./images/green_background.jpg) 100px 0%/ 100% 100% no-repeat;
+        }
+    }
+
+}
+ 
+.cancelBtn_wrapper button{
+    @include button;
+    height: 100%;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background: url(./images/red_background.png) 100px 0%/ 100% 100% no-repeat;
+    
+}
+
+
+
+
+@media screen and (max-width: 786px) {
+    .Task{
+        grid-template-columns: 100%;
+        grid-template-areas: "text";
+    }
+    .editBtn_wrapper, .twoBtn_wrapper{
+        display: none;
+    }
+}
+
+
+.Task-complete{
+    textarea{
+        text-decoration: line-through;
+        color: rgba(132, 26, 26, 0.459);
+    }
+    .editBtn_wrapper button, .twoBtn_wrapper button:last-child{
+        color: rgba(0, 0, 0, 0.459);
+        cursor:auto;
+        background:none;
+        &:hover{
+            
+            font-size: 1.5rem;
+        }
+    }
+}
